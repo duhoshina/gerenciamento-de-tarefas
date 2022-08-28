@@ -1,0 +1,24 @@
+.tasklist {
+  height: 100px;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: space-around;
+  color: #000;
+}
+
+.container_btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.container_btn button {
+  border: 2px solid #000;
+  padding: 8px;
+}
+
+.btn_delete {
+  background-color: #61dafb;
+}

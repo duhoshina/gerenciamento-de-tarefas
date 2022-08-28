@@ -10,12 +10,14 @@ import {ITask} from '../interfaces/Task'
 interface Props {
   btnText: string;
   taskList: ITask[];
+
+  // passar um state como props
   SetTaskList?: React.Dispatch<React.SetStateAction<ITask[]>>;
 }
 
 const TaskForm = ({ btnText, taskList, SetTaskList }: Props) => {
 
-  // states que batem com o ITask
+  // objetos ITask (Item Task)
   const [id, SetId] = useState<number>(0)
   const [title, SetTitle] = useState<string>("")
   const [difficulty, SetDifficulty] = useState<number>(0)
@@ -26,12 +28,15 @@ const TaskForm = ({ btnText, taskList, SetTaskList }: Props) => {
     const id = Math.floor(Math.random() * 1000)
     const newTask: ITask = {id, title, difficulty}
 
+
+    // ! indicacao que obrigatoriamente vai receber uma nova task
     SetTaskList!([...taskList, newTask])
 
     SetTitle('');
     SetDifficulty(0);
 
     console.log(taskList)
+    console.log(newTask)
   }
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
