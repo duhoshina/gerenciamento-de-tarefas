@@ -14,9 +14,9 @@ function App() {
     <div>
       <Header />
       <main className={styles.main}>
-        <h2>O que deve ser feito hoje?</h2>
+        <h2 className={styles.h2}>O que deve ser feito hoje?</h2>
         <TaskForm btnText='Criar Tarefa' />
-        <h2>Tarefas Pendentes</h2>
+        <h2 className={styles.h2}>Tarefas Pendentes</h2>
         <TaskList />
       </main>
       <Footer />
