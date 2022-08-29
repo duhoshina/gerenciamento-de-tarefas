@@ -28,7 +28,6 @@ const TaskForm = ({ btnText, taskList, SetTaskList }: Props) => {
     const id = Math.floor(Math.random() * 1000)
     const newTask: ITask = {id, title, difficulty}
 
-
     // ! indicacao que obrigatoriamente vai receber uma nova task
     SetTaskList!([...taskList, newTask])
 

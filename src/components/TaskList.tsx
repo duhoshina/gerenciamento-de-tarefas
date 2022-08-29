@@ -15,7 +15,7 @@ const TaskList = ({taskList, deleteTask}: Props) => {
   return (
     <div>
       <ul>
-          {taskList.map((item, indice) => (
+          {taskList.map((item) => (
             <li className={styles.tasklist}>
               <div className={styles.container_btn}>
                 <h3>{item.title}</h3>

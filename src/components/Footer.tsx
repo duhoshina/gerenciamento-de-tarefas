@@ -2,10 +2,6 @@ import styles from "./Footer.module.css"
 
 const Footer = () => {
 
-  const funcao = () => {
-    const xd: number = 2
-  }
-
   return (
     <footer className={styles.footer}>
       <p>

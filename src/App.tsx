@@ -20,6 +20,8 @@ function App() {
     SetTaskList(taskList.filter((item) => item.id !== id))
   }, [taskList])
 
+  
+
   return (
     <div>
       <Header />
