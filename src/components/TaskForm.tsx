@@ -20,7 +20,7 @@ const TaskForm = ({ btnText, taskList, SetTaskList }: Props) => {
   // objetos ITask (Item Task)
   const [id, SetId] = useState<number>(0)
   const [title, SetTitle] = useState<string>("")
-  const [difficulty, SetDifficulty] = useState<number>(0)
+  const [difficulty, SetDifficulty] = useState<string>("")
 
   const addTaskHandler = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -32,22 +32,17 @@ const TaskForm = ({ btnText, taskList, SetTaskList }: Props) => {
     SetTaskList!([...taskList, newTask])
 
     SetTitle('');
-    SetDifficulty(0);
 
     console.log(taskList)
     console.log(newTask)
   }
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    switch(event.target.name) {
-      case 'title':
-        SetTitle(event.target.value)
-      break
-      case 'difficulty':
-        SetDifficulty(parseInt(event.target.value))
-      break
-    }
+    SetTitle(event.target.value)
+  }
 
+  const handleSelect = (event: ChangeEvent<HTMLSelectElement>) => {
+    SetDifficulty(event.target.value)
   }
 
   return (
@@ -57,8 +52,12 @@ const TaskForm = ({ btnText, taskList, SetTaskList }: Props) => {
         <input type="text" name="title"  onChange={handleChange} value={title} placeholder="Ex: Terminar de ver as videos aulas de TS" />
       </div>
       <div className={styles.input_container}>
-        <label htmlFor="difficulty">Dificuldade</label>
-        <input type="text" name="difficulty" onChange={handleChange}  value={difficulty} placeholder="Dificuldade da Tarefa" />
+        <label htmlFor="difficulty">Grau da Tarefa</label>
+        <select name="difficulty" onChange={handleSelect} required>
+          <option value="" selected>Selecione um grau</option>
+          <option value="importante">Importante</option>
+          <option value="urgente">Urgente</option>
+        </select>
       </div>
       <input type="submit" value={btnText} />
     </form>

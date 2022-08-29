@@ -15,8 +15,8 @@ const Modal = ({SetShowModal, taskList}: Props) => {
   return (
     <div className={styles.modal}>
       <form className={styles.form} >
-        <label htmlFor="">
-          Editar Titulo
+        <label htmlFor="title">
+          Editar tarefa
         </label>
         <input type="text" name='title' />
         <input type="submit" value='Editar'/>
