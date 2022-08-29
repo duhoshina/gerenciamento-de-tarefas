@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import TaskForm from './components/TaskForm';
 import TaskList from './components/TaskList';
+import Modal from './components/Modal'
 
 // interfaces
 import { ITask } from './interfaces/Task'
@@ -15,12 +16,11 @@ import { ITask } from './interfaces/Task'
 function App() {
 
   const [taskList, SetTaskList] = useState<ITask[]>([])
+  const [showModal, SetShowModal] = useState<boolean>(false)
  
   const deleteTask = useCallback((id: number) => {
     SetTaskList(taskList.filter((item) => item.id !== id))
   }, [taskList])
-
-  
 
   return (
     <div>
@@ -29,7 +29,8 @@ function App() {
         <h2 className={styles.h2}>O que deve ser feito hoje?</h2>
         <TaskForm  SetTaskList={SetTaskList} taskList={taskList} btnText='Criar Tarefa' />
         <h2 className={styles.h2}>Suas Tarefas</h2>
-        <TaskList deleteTask={deleteTask} taskList={taskList} />
+        <TaskList deleteTask={deleteTask}  SetShowModal={SetShowModal} taskList={taskList} />
+        {showModal && <Modal SetShowModal={SetShowModal} taskList={taskList} />}
       </main>
       <Footer />
     </div>

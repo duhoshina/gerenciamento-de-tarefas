@@ -6,11 +6,13 @@ import styles from './TaskList.module.css'
 interface Props {
   taskList: ITask[];
 
+  SetShowModal: React.Dispatch<React.SetStateAction<boolean>>
+
   // passar funcao por props
   deleteTask: (indice: number) => void;
 }
 
-const TaskList = ({taskList, deleteTask}: Props) => {
+const TaskList = ({taskList, deleteTask, SetShowModal}: Props) => {
 
   return (
     <div>
@@ -22,7 +24,7 @@ const TaskList = ({taskList, deleteTask}: Props) => {
                 <p>Dificuldade: {item.difficulty}</p>
               </div>
               <div className={styles.container_btn}>
-                <button>Editar</button>
+                <button onClick={() => SetShowModal(true)}>Editar</button>
                 <button onClick={() => deleteTask(item.id)} className={styles.btn_delete}>Excluir</button>
               </div>
             </li>
